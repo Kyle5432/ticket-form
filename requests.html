@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit a Ticket</title>
+</head>
+<body>
+  <h2>Submit a Ticket</h2>
+  <form action="https://formspree.io/f/xgvkvnwv" method="POST">
+
+    <fieldset>
+      <legend>Account Request (optional)</legend>
+      <label for="account_request_details">Account Request Details:</label><br>
+      <textarea id="account_request_details" name="account_request_details" rows="6" cols="60"></textarea>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+      <legend>Issue Report (optional)</legend>
+      <label for="issue_report_details">Issue Description:</label><br>
+      <textarea id="issue_report_details" name="issue_report_details" rows="6" cols="60"></textarea>
+    </fieldset>
+
+    <br>
+
+    <label for="contact">Your Contact Info (optional):</label><br>
+    <input id="contact" name="contact" type="text" placeholder="(email, username, etc)"><br><br>
+
+    <button type="submit">Submit Ticket</button>
+  </form>
+
+  <script>
+    document.querySelector('form').onsubmit = function(e) {
+      const account = document.getElementById('account_request_details').value.trim();
+      const issue = document.getElementById('issue_report_details').value.trim();
+      if (!account && !issue) {
+        alert('Please fill out at least one section (Account Request or Issue Report).');
+        e.preventDefault();
+      }
+    };
+  </script>
+</body>
+</html>
